@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
-import Onboarding from './app/screens/Onboarding/Onboarding';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigator from './app/navigation/AppNavigator';
 
 let customFonts = {
 	'Lato-Regular': require('./app/assets/fonts/Lato/Lato-Regular.ttf'),
@@ -16,17 +17,19 @@ let customFonts = {
 	'Raleway-Black': require('./app/assets/fonts/Raleway/static/Raleway-Black.ttf'),
 	'Raleway-Light': require('./app/assets/fonts/Raleway/static/Raleway-Light.ttf'),
 	'Raleway-Italic': require('./app/assets/fonts/Raleway/static/Raleway-Italic.ttf'),
-	'Raleway-Bold': require('./app/assets/fonts/Raleway/static/Raleway-Bold.ttf')
+	'Raleway-Bold': require('./app/assets/fonts/Raleway/static/Raleway-Bold.ttf'),
 };
 
 export default function App() {
 	const [loaded, error] = useFonts(customFonts);
 
-	useEffect(() => {
+	useEffect(() => {}, []);
 
-	}, []);
-
-	return !loaded ? null : <Onboarding />;
+	return !loaded ? null : (
+		<NavigationContainer>
+			<AppNavigator />
+		</NavigationContainer>
+	);
 }
 
 const styles = StyleSheet.create({
