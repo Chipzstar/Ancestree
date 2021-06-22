@@ -12,8 +12,6 @@ const originalHeight = 620;
 const aspectRatio = originalWidth / originalHeight;
 
 const Onboarding = ({ navigation }) => {
-	console.log(navigation);
-
 	/*<Block style={{width: WIDTH, aspectRatio}}>
 		<WelcomeBg originalWidth={originalWidth} originalHeight={originalHeight}/>
 	</Block>*/

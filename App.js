@@ -18,6 +18,7 @@ let customFonts = {
 	'Raleway-Light': require('./app/assets/fonts/Raleway/static/Raleway-Light.ttf'),
 	'Raleway-Italic': require('./app/assets/fonts/Raleway/static/Raleway-Italic.ttf'),
 	'Raleway-Bold': require('./app/assets/fonts/Raleway/static/Raleway-Bold.ttf'),
+	'Raleway-Extra-Bold': require('./app/assets/fonts/Raleway/static/Raleway-ExtraBold.ttf'),
 };
 
 export default function App() {
