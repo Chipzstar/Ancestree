@@ -9,21 +9,27 @@ const RootStack = createStackNavigator();
 const AuthStack = createStackNavigator();
 const HomeStack = createStackNavigator();
 
-const RootStackScreen = ({ userToken }) => (
+const RootStackScreen = ({ userToken, onAuth }) => (
 	<RootStack.Navigator headerMode={'none'}>
 		{userToken ? (
 			<RootStack.Screen name={'App'} component={HomeStackScreen} />
 		) : (
-			<RootStack.Screen name={'Auth'} component={AuthStackScreen} />
+			<RootStack.Screen name={'Auth'}>
+				{(props) => <AuthStackScreen onAuth={onAuth} {...props}/>}
+			</RootStack.Screen>
 		)}
 	</RootStack.Navigator>
 );
 
-const AuthStackScreen = () => (
+const AuthStackScreen = ({onAuth}) => (
 	<AuthStack.Navigator headerMode={'none'} initialRouteName={"Welcome"}>
 		<AuthStack.Screen name={"Welcome"} component={Onboarding}/>
-		<AuthStack.Screen name={'SignIn'} component={Login} />
-		<AuthStack.Screen name={'SignUp'} component={Register} />
+		<AuthStack.Screen name={'SignIn'}>
+			{(props) => <Login onAuth={onAuth} {...props}/>}
+		</AuthStack.Screen>
+		<AuthStack.Screen name={'SignUp'}>
+			{(props) => <Register onAuth={onAuth} {...props}/>}
+		</AuthStack.Screen>
 	</AuthStack.Navigator>
 );
 
@@ -38,11 +44,16 @@ const AppNavigator = props => {
 	const [userToken, setUserToken] = useState(null);
 	const [authRoute, setAuthRoute] = useState();
 
+	async function onAuth(){
+		setUserToken("test_user")
+		console.log(userToken)
+	}
+
 	useEffect(() => {
 
 	}, []);
 
-	return <RootStackScreen userToken={userToken} />;
+	return <RootStackScreen userToken={userToken} onAuth={onAuth}/>;
 };
 
 export default AppNavigator;

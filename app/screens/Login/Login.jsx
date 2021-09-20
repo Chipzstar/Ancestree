@@ -3,12 +3,12 @@ import { Block, Text, Input, Button } from 'galio-framework';
 import logo from '../../assets/images/logo.png';
 import { Image, TouchableOpacity } from 'react-native';
 import { COLOURS } from '../../constants/Theme';
-import FacebookBtn from '../../components/FacebookBtn';
-import GoogleBtn from '../../components/GoogleBtn';
-import OrBtn from '../../components/OrBtn';
+import FacebookBtn from '../../components/icons/FacebookBtn';
+import GoogleBtn from '../../components/icons/GoogleBtn';
+import OrBtn from '../../components/icons/OrBtn';
 import { WIDTH } from './styles';
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation, onAuth}) => {
 	useEffect(() => {}, []);
 
 	return (
@@ -74,7 +74,7 @@ const Login = ({ navigation }) => {
 				</Block>
 				<Block flex middle width={WIDTH * 0.8}>
 					<Button color={COLOURS.PRIMARY} style={{ width: WIDTH * 0.8 }}>
-						<Text size={18} color={COLOURS.WHITE} style={{ fontFamily: 'Lato-Bold' }}>
+						<Text size={18} color={COLOURS.WHITE} style={{ fontFamily: 'Lato-Bold' }} onPress={() => onAuth()}>
 							Log In
 						</Text>
 					</Button>

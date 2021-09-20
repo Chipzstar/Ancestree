@@ -3,11 +3,11 @@ import { Block, Text, Input, Button, Checkbox } from 'galio-framework';
 import { COLOURS } from '../../constants/Theme';
 import { WIDTH } from '../Login/styles';
 import { TouchableOpacity } from 'react-native';
-import FacebookBtn from '../../components/FacebookBtn';
-import GoogleBtn from '../../components/GoogleBtn';
-import OrBtn from '../../components/OrBtn';
+import FacebookBtn from '../../components/icons/FacebookBtn';
+import GoogleBtn from '../../components/icons/GoogleBtn';
+import OrBtn from '../../components/icons/OrBtn';
 
-const Register = ({ navigation }) => (
+const Register = ({ navigation, onAuth }) => (
 	<Block flex space={"evenly"} style={{ backgroundColor: COLOURS.WHITE, paddingTop: 50 }}>
 		<Text h3 center color={COLOURS.PRIMARY} style={{ fontFamily: 'Raleway-Extra-Bold' }}>
 			Create an account
@@ -110,7 +110,7 @@ const Register = ({ navigation }) => (
 			width={WIDTH * 0.85}
 		>
 			<Button color={COLOURS.PRIMARY} style={{ width: WIDTH * 0.8 }}>
-				<Text size={18} color={COLOURS.WHITE} style={{ fontFamily: 'Lato-Bold' }}>
+				<Text size={18} color={COLOURS.WHITE} style={{ fontFamily: 'Lato-Bold' }} onPress={() => onAuth()}>
 					Continue
 				</Text>
 			</Button>

@@ -3,5 +3,6 @@ export const COLOURS = {
 	WHITE: "#fff",
 	PRIMARY: "#3BB19B",
 	SUBTEXT: "#525252",
-	INPUT: "#C0C0C0"
+	INPUT: "#C0C0C0",
+	BUTTON: "#7183C3"
 }
